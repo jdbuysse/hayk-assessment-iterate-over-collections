@@ -24,30 +24,30 @@ end
 
 # Combine all the sizes with reduce
 def combine_sizes(companies)
-    # broken
-    companies.reduce(0) { |sum, company| sum + company.size}
+    res = companies.reduce(0) { |sum, company| sum + company.size}
+    "There are #{res} employees total in all companies"
 end
 
 # Filter the list to show only companies over 100
 def filter_over_100(companies)
-    # call list of strings() on the line below?
-    companies.filter {|company| company.size > 100}
+    list_of_strings(companies.filter {|company| company.size > 100})
 end
 
 # Find the company named "Beta"
 def find_beta(companies)
-    companies.find { |company| company.name == "Beta"}
+    res = companies.find { |company| company.name == "Beta"}
+    "Found company #{res.name} with #{res.size.to_s} employees"
 end
 
 # Find the largest company
 def largest_company(companies)
-    companies.max_by { |company| company.size}
+    res = companies.max_by { |company| company.size}
+    "The largest company is #{res.name} with #{res.size.to_s} employees"
 end
 
 # Sort the companies from largest to smallest
 def largest_to_smallest(companies)
-    # not working atm
-    companies.sort { |company| company.size}
+    list_of_strings(companies.sort { |company| company.size})
 end
 
 binding.pry
